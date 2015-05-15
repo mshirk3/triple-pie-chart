@@ -1,0 +1,353 @@
+<!-- noformat on -->
+<html>
+<head>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+
+<script src="http://code.highcharts.com/highcharts.js"></script>
+
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+<script>
+$(function () {
+   
+    
+    $(document).ready(function () {
+    	 
+    	// Build the chart
+        var chart1 = new Highcharts.Chart({
+            chart: {
+                renderTo: 'containerb',
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false
+            },
+			credits: {
+            enabled: false
+        },
+            title: {
+                text: 'Mngmt Expenses'
+            },
+            tooltip: {
+headerFormat: '<b>{point.key}</b><br>',
+        	    pointFormat: '<b>${point.y}</b><br><b>{point.percentage:.1f}%</b>'
+            },
+legend: {
+            layout: 'vertical',
+            align: 'left',
+            verticalAlign: 'top',
+            y: 20,
+			floating:true,
+            labelFormatter: function () {return '<span>' + this.name+'</span>';},
+            useHTML:true,
+			itemStyle: {
+                color: 'black',
+                fontWeight: 'normal',
+                fontSize: '12px',
+				font: '12pt Arial'
+            }
+        },
+             plotOptions: {
+	                pie: {
+	                    allowPointSelect: true,
+                            showInLegend: true,
+							center: ['50%', '40%'],
+	                    cursor: 'pointer',
+						size:'80%',
+	                    dataLabels: {
+	                        enabled: false,
+	                        color: '#000000',
+	                        connectorColor: '#000000',
+	                        formatter: function() {
+	                            return '<b>'+ this.point.name +'</b>: '+ this.percentage +' %';
+	                        }
+	                    }
+	                }
+	            },
+            series: [{
+                type: 'pie',
+
+                data: [["Salaries",1711],["Travel",1882]] 
+
+        }]
+        });
+$("#list").on('change', function(){
+    //alert('f')
+    var selVal = $("#list").val();
+    var selValB = $("#listb").val();
+    
+    if(selVal == "a" &&  selValB == "d" )
+    {
+        chart1.series[0].setData([["Salaries",1711],["Travel",1882]] 
+);
+            chart2.series[0].setData([["Wages",1511],["Training",1122]] 
+);
+            chart3.series[0].setData([["Lumber",1911],["Composites",2122]] );   
+    }
+    else if(selVal == "a" && selValB == "e" )
+    {
+        chart1.series[0].setData([["Salaries",2111],["Travel",3222]] 
+); 
+            chart2.series[0].setData([["Travel",3222],["Wages",1811]] 
+);
+            chart3.series[0].setData([["Lumber",3111],["Composites",1722]] 
+);  
+    }
+    else if(selVal == "b" && selValB == "d")
+    {
+        chart1.series[0].setData([["Salaries",1444],["Travel",1555]] 
+); 
+            chart2.series[0].setData([["Wages",1661],["Training",2222]] 
+);
+            chart3.series[0].setData([["Lumber",2111],["Composites",1222]] 
+);
+    }
+    else if(selVal == "b" && selValB == "e")
+    {
+        chart1.series[0].setData([["Salaries",1777],["Travel",1333]] 
+); 
+            chart2.series[0].setData([["Travel",1333],["Wages",2511]] 
+);
+            chart3.series[0].setData([["Lumber",1511],["Composites",1622]] 
+);
+    }
+    else if(selVal == "c" && selValB == "d")
+    {
+        chart1.series[0].setData([["Salaries",1111],["Travel",1222]] 
+);
+            chart2.series[0].setData([["Wages",1999],["Training",2222]] 
+);
+            chart3.series[0].setData([["Lumber",1555],["Composites",1666]] 
+);
+    } 
+    else if(selVal == "c" && selValB == "e")
+    {
+        chart1.series[0].setData([["Salaries",1333],["Travel",1444]] 
+);
+            chart2.series[0].setData([["Travel",1444],["Wages",2111]] 
+);
+            chart3.series[0].setData([["Lumber",1777],["Composites",1888]] 
+);
+    } 
+    else
+    {
+        alert(value);   
+    }    
+});
+
+$("#listb").on('change', function(){
+    //alert('f')
+    var selValC = $("#list").val();
+    var selValCC = $("#listb").val();
+    
+    if(selValC == "a" && selValCC == "d" )
+    {
+        chart1.series[0].setData([["Salaries",1711],["Travel",1882]] 
+);
+            chart2.series[0].setData([["Wages",1511],["Training",1122]] 
+);
+            chart3.series[0].setData([["Lumber",1911],["Composites",2122]] );   
+    }
+    else if(selValC == "a" && selValCC == "e" )
+    {
+        chart1.series[0].setData([["Salaries",2111],["Travel",3222]] 
+); 
+            chart2.series[0].setData([["Travel",3222],["Wages",1811]] 
+);
+            chart3.series[0].setData([["Lumber",3111],["Composites",1722]] 
+);  
+    }
+    else if(selValC == "b" && selValCC == "d")
+    {
+        chart1.series[0].setData([["Salaries",1444],["Travel",1555]] 
+); 
+            chart2.series[0].setData([["Wages",1661],["Training",2222]] 
+);
+            chart3.series[0].setData([["Lumber",2111],["Composites",1222]] 
+);
+    }
+    else if(selValC == "b" && selValCC == "e")
+    {
+        chart1.series[0].setData([["Salaries",1777],["Travel",1333]] 
+); 
+            chart2.series[0].setData([["Travel",1333],["Wages",2511]] 
+);
+            chart3.series[0].setData([["Lumber",1511],["Composites",1622]] 
+);
+    }
+    else if(selValC == "c" && selValCC == "d")
+    {
+        chart1.series[0].setData([["Salaries",1111],["Travel",1222]] 
+);
+            chart2.series[0].setData([["Wages",1999],["Training",2222]] 
+);
+            chart3.series[0].setData([["Lumber",1555],["Composites",1666]] 
+);
+    } 
+    else if(selValC == "c" && selValCC == "e")
+    {
+        chart1.series[0].setData([["Salaries",1333],["Travel",1444]] 
+);
+            chart2.series[0].setData([["Travel",1444],["Wages",2111]] 
+);
+            chart3.series[0].setData([["Lumber",1777],["Composites",1888]] 
+);
+    } 
+    else
+    {
+        alert(value);   
+    }    
+});
+
+    });
+   
+    
+ 
+    	
+    	// Build the chart
+        var chart2 = new Highcharts.Chart({
+            chart: {
+                renderTo: 'containerc',
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false
+            },
+			credits: {
+            enabled: false
+        },
+            title: {
+                text: 'Labor Expenses'
+            },
+            tooltip: {
+headerFormat: '<b>{point.key}</b><br>',
+        	    pointFormat: '<b>${point.y}</b><br><b>{point.percentage:.1f}%</b>'
+            },
+legend: {
+            layout: 'vertical',
+            align: 'left',
+            verticalAlign: 'top',
+            y: 20,
+			floating:true,
+            labelFormatter: function () {return '<span>' + this.name+'</span>';},
+            useHTML:true,
+			itemStyle: {
+                color: 'black',
+                fontWeight: 'normal',
+                fontSize: '12px',
+				font: '12pt Arial'
+            }
+        },
+             plotOptions: {
+	                pie: {
+	                    allowPointSelect: true,
+                            showInLegend: true,
+							center: ['50%', '40%'],
+	                    cursor: 'pointer',
+						size:'80%',
+	                    dataLabels: {
+	                        enabled: false,
+	                        color: '#000000',
+	                        connectorColor: '#000000',
+	                        formatter: function() {
+	                            return '<b>'+ this.point.name +'</b>: '+ this.percentage +' %';
+	                        }
+	                    }
+	                }
+	            },
+            series: [{
+                type: 'pie',
+
+                data: [["Wages",1511],["Training",1122]] 
+            }]
+        });
+		
+		var chart3 = new Highcharts.Chart({
+            chart: {
+                renderTo: 'containerd',
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false
+            },
+			credits: {
+            enabled: false
+        },
+            title: {
+                text: 'Materials Expenses'
+            },
+            tooltip: {
+headerFormat: '<b>{point.key}</b><br>',
+        	    pointFormat: '<b>${point.y}</b><br><b>{point.percentage:.1f}%</b>'
+            },
+ legend: {
+            layout: 'vertical',
+            align: 'left',
+            verticalAlign: 'top',
+            y: 20,
+			floating:true,
+            labelFormatter: function () {return '<span>' + this.name+'</span>';},
+            useHTML:true,
+			itemStyle: {
+                color: 'black',
+                fontWeight: 'normal',
+                fontSize: '12px',
+				font: '12pt Arial'
+            }
+        },
+             plotOptions: {
+	                pie: {
+	                    allowPointSelect: true,
+                            showInLegend: true,
+	                    cursor: 'pointer',
+						center: ['50%', '40%'],
+						size:'80%',
+	                    dataLabels: {
+	                        enabled: false,
+	                        color: '#000000',
+	                        connectorColor: '#000000',
+	                        formatter: function() {
+	                            return '<b>'+ this.point.name +'</b>: '+ this.percentage +' %';
+	                        }
+	                    }
+	                }
+	            },
+            series: [{
+                type: 'pie',
+
+                data: [["Lumber",1911],["Composites",2122]] 
+            }]
+        });
+
+
+ 
+    
+});</script></head>
+<body>
+<div style="width:90%;margin-right:auto;margin-left:auto;">
+
+ <div style="border: 2px solid #ccc; margin-bottom: 24px;">
+        <div id="module1bar" style="margin-bottom: 0px; width: auto; padding-left: 20px; background: linear-gradient(to bottom, rgb(250, 250, 250) 1%, rgb(233, 233, 233) 100%) repeat scroll 0px 0px transparent; border-bottom: 2px solid rgb(204, 204, 204);">
+        <div style="padding-top:10px;padding-bottom:10px;"><div style="display:inline-block; padding-right:20px; padding-left:10px;">
+<select style="font-size:22px;padding:10px; width:160px;" id="list"> 
+<option id="year2" value="c">2013</option>
+<option id="year1" value="b">2014</option>
+<option id="year0" value="a" selected=yes >2015</option>
+</select>
+</div><div style="display:inline-block;"><select style="font-size:22px;padding:10px; width:180px;" id="listb"> 
+<option id="actual" value="d" selected=yes >Actual</option> 
+<option id="budget" value="e">Budget</option>
+</select>
+</div>
+<div style="display:inline-block;">
+<h1 style="margin: 0px; font-size:22px; margin-left:20px; text-align: center; font-family: arial; font-weight: lighter; border:0px !important;">Filterable Triple Pie Chart Using Highcharts and jQuery</h1></div>
+</div> 
+		</div>
+
+
+<div style="width:100%"><br><br>
+<div id="containerb" style="width:33%;display:inline-block;vertical-align:top;"></div>
+<div id="containerc" style="width:33%;display:inline-block;vertical-align:top;"></div>
+<div id="containerd" style="width:33%;display:inline-block;vertical-align:top;"></div>
+</div>
+
+
+</div></div></body></html>
+<!-- noformat off -->
